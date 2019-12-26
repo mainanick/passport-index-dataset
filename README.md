@@ -1,18 +1,30 @@
-# passport-index-dataset
+# Passport Index Dataset
+## Travel visa requirements for 199 countries, in .csv
+Last updated on December 17, 2019
 
 ![Passport](passport.png)
 
-**Passport Index 2019: travel visa requirements for 199 countries, in .csv**
+### About datasets
 
-* Last updated on May 23, 2019
-* In distance matrices (files containing `-matrix*.csv`), the first column represents a passport (=from), each remaining column represents a foreign country (=to). Files in tidy format (`-tidy*.csv`) have the first column as passport (from), the second column as destination (=to), and the third column as value.
-* Values:
-  * `3` = visa-free travel
-  * `2` = eTA is required
-  * `1` = visa can be obtained on arrival (which Passport Index considers visa-free)
-  * `0` = visa is required
-  * `-1` is for all instances where passport and destination are the same
+All 6 datasets contain the same information with different data: two and three-letter codes, and full country names from no particular standard.
 
-Data in all 6 *.csv* datasets is the same. Files only differ in the way they present it (distance matrix or tidy), and country codes (ISO-2, ISO-3, and full country names from no particular standard).
+In distance matrices (files with `matrix` in the filename), the first column represents a passport (=from), each remaining column represents a destination (=to).
+
+Files in tidy format (with `tidy` in filename) have three columns: passport (from), destination (to), and the code. Note that unlike in the matrix, these files do not have instances were `passport = destination`, and as a result there are no `-1` code values.
+
+### Codes
+| Code | Explanation |
+|---|---|
+|3| visa-free travel|
+|2| visa on arrival|
+|1| eTA (electronic travel authority) required|
+|0| visa required|
+|-1| where passport=destination|
+
+### Update data with Jupyter notebook
+You should be able to run the Jupyter notebook to update datasets whenever you want. The notebook uses BeautifulSoup to fetch PassportIndex source HTML and extract the `<script>` tag with relevant visa data, then transforms the data using `Js2Py` for Python processing, and then generates 6 datasets.
+
+### Source & License
+Since "Passport Index is a free tool, built with publicly available information and with content contributed by fans and government agencies around the world", feel free to use the dataset under the MIT license.
 
 Source: https://www.passportindex.org
