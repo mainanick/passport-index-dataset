@@ -1,12 +1,12 @@
 # Passport Index Dataset
 ## Travel visa requirements for 199 countries, in .csv
-Last updated on December 17, 2019
+Last updated on January 13, 2020
 
 ![Passport](passport.png)
 
 ### About datasets
 
-All 6 datasets contain the same information with different data: two and three-letter codes, and full country names from no particular standard.
+All 6 datasets contain the same information, but represent data differently: two and three-letter codes (ISO2, ISO3), and full country names from no particular standard, as well as distance matrix and tidy formats.
 
 In distance matrices (files with `matrix` in the filename), the first column represents a passport (=from), each remaining column represents a destination (=to).
 
